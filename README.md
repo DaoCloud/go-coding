@@ -15,7 +15,7 @@ import "github.com/daocloud/go-coding"
 client := coding.NewClient("https://coding.net/api", "xxxxxxx")
 ```
 
-## contributions ##
+## Contributions ##
 
 We are open for all kinds of pull requests!
 
