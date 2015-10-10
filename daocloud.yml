@@ -1,0 +1,10 @@
+image: daocloud/ci-golang:1.4
+
+install:
+  - sudo apt-get update
+
+script:
+  - export GOPATH=$PWD
+  - go vet ./...
+  - go get -v ./...
+  - go test -v ./...

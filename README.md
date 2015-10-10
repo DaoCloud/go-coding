@@ -1,8 +1,8 @@
 # go-coding #
 
-go-coding is a Go client library for accessing the [GitCafe API](https://open.coding.net/).
+[![GoDoc](https://godoc.org/github.com/daocloud/go-coding?status.svg)](https://godoc.org/github.com/daocloud/go-coding)  
 
-**Documentation:** [![GoDoc](https://godoc.org/github.com/daocloud/go-coding?status.svg)](https://godoc.org/github.com/daocloud/go-coding)  
+go-coding is a Go client library for accessing the [Coding API](https://open.coding.net/).
 
 go-coding requires Go version 1.3 or greater.
 
