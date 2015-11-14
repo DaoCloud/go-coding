@@ -19,6 +19,7 @@ type Client struct {
 
 	ProjectService *ProjectService
 	HookService    *HookService
+	TweetService *TweetService
 }
 
 const (
@@ -42,7 +43,7 @@ func NewClientTimeout(apiPath string, token string, timeout time.Duration) *Clie
 
 	c.ProjectService = &ProjectService{client: c}
 	c.HookService = &HookService{client: c}
-
+	c.TweetService = &TweetService{client: c}
 	return c
 }
 
@@ -80,8 +81,11 @@ func (c *Client) Do(req *http.Request, v interface{}) (*http.Response, error) {
 // specified, the value pointed to by body is JSON encoded and included as the
 // request body.
 func (c *Client) NewRequest(method string, url string, body io.Reader) (*http.Request, error) {
+	//如果不需要access_token的api也传送access_token作为参数就无法调用成功
+	apiurl := c.APIPath+url
+	fmt.Println("api url: "+apiurl)
 	req, err := http.NewRequest(method,
-		c.APIPath+url+"?access_token="+c.AccessToken,
+		c.APIPath+url,//+"?access_token="+c.AccessToken,
 		body)
 	if err != nil {
 		return nil, err
